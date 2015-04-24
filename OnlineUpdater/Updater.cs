@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Cache;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -36,6 +38,8 @@ namespace OnlineUpdater
 
         private static Version InstalledVersion;
 
+        private static CultureInfo CurrentCulture;
+
         /// <summary>
         /// Проверка наличия новой версии, при инициализированном UpdateXmlURL
         /// </summary>
@@ -63,7 +67,10 @@ namespace OnlineUpdater
             ReadXML(UpdateXmlUrl);
             if(CheckArgs())
             {
-
+                Thread thread = new Thread(ShowUI);
+                thread.CurrentCulture = thread.CurrentUICulture = CurrentCulture ?? CultureInfo.DefaultThreadCurrentCulture;
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
             }
         }
 
@@ -79,7 +86,6 @@ namespace OnlineUpdater
             }
             catch
             {
-                //TODO
                 return;
             }
 
@@ -93,7 +99,6 @@ namespace OnlineUpdater
             }
             else
             {
-                //TODO
                 return;
             }
 
@@ -136,7 +141,21 @@ namespace OnlineUpdater
 
         private static bool CheckArgs()
         {
-            throw new NotImplementedException();
+            if (LatestVersion == null || DownloadURL == null || InstalledVersion == null)
+                return false;
+
+            if (LatestVersion > InstalledVersion)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private static void ShowUI(object obj)
+        {
+            //TODO
+            //UpdateWindow updateForm = new UpdateWindow();
+            //updateForm.ShowDialog();
         }
 
         private static string GetURL(Uri respondUri, XmlNode xmlNode)
