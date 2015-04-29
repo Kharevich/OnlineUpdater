@@ -68,7 +68,7 @@ namespace OnlineUpdater
             if(CheckArgs())
             {
                 Thread thread = new Thread(ShowUI);
-                thread.CurrentCulture = thread.CurrentUICulture = CurrentCulture ?? CultureInfo.DefaultThreadCurrentCulture;
+                thread.CurrentCulture = thread.CurrentUICulture = CurrentCulture ?? Thread.CurrentThread.CurrentCulture;
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
             }
@@ -153,9 +153,8 @@ namespace OnlineUpdater
 
         private static void ShowUI(object obj)
         {
-            //TODO
-            //UpdateWindow updateForm = new UpdateWindow();
-            //updateForm.ShowDialog();
+            UpdateWindow updateForm = new UpdateWindow();
+            updateForm.ShowDialog();
         }
 
         private static string GetURL(Uri respondUri, XmlNode xmlNode)

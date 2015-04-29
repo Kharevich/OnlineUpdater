@@ -1,0 +1,11 @@
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.csprojResolveAssemblyReference.cache
+D:\Windows\OnlineUpdater\OnlineUpdater\bin\Debug\OnlineUpdater.dll
+D:\Windows\OnlineUpdater\OnlineUpdater\bin\Debug\OnlineUpdater.pdb
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.dll
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.pdb
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.Properties.Resources.resources
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.csproj.GenerateResource.Cache
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\UpdateWindow.baml
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\UpdateWindow.g.cs
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater_MarkupCompile.cache
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.g.resources

@@ -1,0 +1,14 @@
+D:\Windows\OnlineUpdater\TestOnlineUpdater\bin\Debug\TestOnlineUpdater.exe
+D:\Windows\OnlineUpdater\TestOnlineUpdater\bin\Debug\TestOnlineUpdater.pdb
+D:\Windows\OnlineUpdater\TestOnlineUpdater\bin\Debug\OnlineUpdater.dll
+D:\Windows\OnlineUpdater\TestOnlineUpdater\bin\Debug\OnlineUpdater.pdb
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.csprojResolveAssemblyReference.cache
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\MainWindow.baml
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\MainWindow.g.cs
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\App.g.cs
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater_MarkupCompile.cache
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.g.resources
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.Properties.Resources.resources
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.csproj.GenerateResource.Cache
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.exe
+D:\Windows\OnlineUpdater\TestOnlineUpdater\obj\Debug\TestOnlineUpdater.pdb
