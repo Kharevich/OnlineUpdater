@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OnlineUpdater.UpdateWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Update Window" Width="400" Height="300">
+        Title="Update Window" Width="400" Height="450" MinWidth="400" MinHeight="450" Icon="refresh.ico" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="110"></RowDefinition>
@@ -9,12 +9,12 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" TextWrapping="Wrap" Margin="5"><Bold FontSize="14">Доступна новая версия программы ХХХ!</Bold><LineBreak/><LineBreak/>Доступна версия хх.хх.хх.хх. У Вас установлена версия хх.хх.хх.хх. Хотите установить обновление прямо сейчас?<LineBreak/><LineBreak/><Bold>Что нового:</Bold></TextBlock>
+        <TextBlock Name="textBlock" Grid.Row="0" TextWrapping="Wrap" Margin="10,5"><Bold FontSize="14">Доступна новая версия программы {0}!</Bold><LineBreak/><LineBreak/>Доступна версия {1}. У Вас установлена версия {2}. Хотите установить обновление прямо сейчас?<LineBreak/><LineBreak/><Bold>Что нового:</Bold></TextBlock>
         
-        <WebBrowser Grid.Row="1" Source="http://tut.by"></WebBrowser>
-        
-        <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Content="Не напоминать" Margin="10,0,0,0"></Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Content="Напомнить позже" Margin="0,0,120,0"></Button>
-        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Обновить" Width="100" Margin="0,0,10,0"></Button>
+        <WebBrowser Name="webBrowser" Grid.Row="1"></WebBrowser>
+
+        <Button Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="110" Content="Не сейчас" Margin="10,0,0,0" IsCancel="True" Click="CancelButton_Click"></Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110" Content="Напомнить позже" Margin="0,0,130,0" Visibility="Collapsed"></Button>
+        <Button Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Обновить" Width="110" Margin="0,0,10,0" Background="#FFB2ECBA" Click="UpdateButton_Click"></Button>
     </Grid>
 </Window>

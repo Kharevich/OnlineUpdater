@@ -26,7 +26,7 @@ namespace OnlineUpdater
         /// <summary>
         /// Ссылка на страницу с журналом изменений
         /// </summary>
-        private static string ChangeLogURL;
+        internal static string ChangeLogURL = "http://visualgold.ru";
 
         /// <summary>
         /// Ссылка на файл обновления
@@ -34,9 +34,9 @@ namespace OnlineUpdater
         /// </summary>
         private static string DownloadURL;
 
-        private static Version LatestVersion;
+        internal static Version LatestVersion = new Version("1.0.2.0");
 
-        private static Version InstalledVersion;
+        internal static Version InstalledVersion = new Version("1.0.0.0");
 
         private static CultureInfo CurrentCulture;
 
@@ -48,7 +48,9 @@ namespace OnlineUpdater
             StartUpdate(UpdateXmlUrl);
         }
 
-        private static string UpdateDialogTitle;
+        internal static string UpdateDialogTitle = "Обновление Start";
+
+        internal static string AppTitle = "Start";
 
         /// <summary>
         /// Проверка наличия новой версии
@@ -169,6 +171,12 @@ namespace OnlineUpdater
                 }
             }
             return temp;
+        }
+
+        internal static void DownloadUpdate()
+        {
+            DownloadProgressWindow downloadWindow = new DownloadProgressWindow(DownloadURL);
+            downloadWindow.Show();
         }
     }
 }
