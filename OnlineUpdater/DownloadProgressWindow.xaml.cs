@@ -16,6 +16,8 @@ namespace OnlineUpdater
         private string tempPath;
         private WebClient webClient;
 
+        
+        
         public DownloadProgressWindow(string url)
         {
             InitializeComponent();
@@ -67,31 +69,11 @@ namespace OnlineUpdater
                     httpWebResponse.StatusCode.Equals(HttpStatusCode.Moved) ||
                     httpWebResponse.StatusCode.Equals(HttpStatusCode.MovedPermanently))
                 {
-                    if (httpWebResponse.Headers["Location"] != null)
-                    {
-                        var location = httpWebResponse.Headers["Location"];
-                        fileName = GetFileName(location);
-                        return fileName;
-                    }
+                    return fileName;
                 }
 
-
-                var contentDisposition = httpWebResponse.Headers["content-disposition"];
-                if (!string.IsNullOrEmpty(contentDisposition))
-                {
-                    const string lookForFileName = "filename=";
-                    var index = contentDisposition.IndexOf(lookForFileName, StringComparison.CurrentCultureIgnoreCase);
-                    if (index >= 0)
-                        fileName = contentDisposition.Substring(index + lookForFileName.Length);
-                    if (fileName.StartsWith("\"") && fileName.EndsWith("\""))
-                    {
-                        fileName = fileName.Substring(1, fileName.Length - 2);
-                    }
-                }
-            }
-            if (string.IsNullOrEmpty(fileName))
-            {
-                fileName = Path.GetFileName(uri.LocalPath);
+                string[] urlStrings = url.Split('/');
+                fileName = urlStrings[urlStrings.Length - 1];
             }
             return fileName;
         }

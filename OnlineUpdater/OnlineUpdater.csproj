@@ -80,11 +80,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="download.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="file-transfer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

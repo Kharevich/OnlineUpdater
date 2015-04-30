@@ -24,7 +24,7 @@ namespace OnlineUpdater
             InitializeComponent();
             
             Title = Updater.UpdateDialogTitle;
-            textBlock.Text = string.Empty;
+
             Bold startstring = new Bold(new Run(string.Format("Доступна новая версия программы {0}!", Updater.AppTitle)));
             startstring.FontSize = 15;
             string middlestring = string.Format("Доступна версия {0}. У Вас установлена версия {1}. Хотите установить обновление прямо сейчас?", Updater.LatestVersion, Updater.InstalledVersion);
@@ -40,11 +40,6 @@ namespace OnlineUpdater
             textBlock.Inlines.Add(endstring);
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            webBrowser.Navigate(Updater.ChangeLogURL);
-        }
-
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -53,8 +48,16 @@ namespace OnlineUpdater
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             Updater.DownloadUpdate();
-            this.Close();
         }
 
+        private void webBrowser_Navigated(object sender, NavigationEventArgs e)
+        {
+            webBrowser.Refresh(true);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            webBrowser.Source = new Uri(Updater.ChangeLogURL);
+        }
     }
 }

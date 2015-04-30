@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineUpdater;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,9 @@ namespace TestOnlineUpdater
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            OnlineUpdater.UpdateWindow wind = new OnlineUpdater.UpdateWindow();
-            wind.Show();
+            Updater.StartUpdate("http://visualgold.ru/start/start.xml");
         }
     }
 }

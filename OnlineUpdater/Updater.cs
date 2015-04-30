@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Cache;
-using System.Text;
+using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace OnlineUpdater
@@ -26,7 +22,7 @@ namespace OnlineUpdater
         /// <summary>
         /// Ссылка на страницу с журналом изменений
         /// </summary>
-        internal static string ChangeLogURL = "http://visualgold.ru";
+        internal static string ChangeLogURL;
 
         /// <summary>
         /// Ссылка на файл обновления
@@ -34,11 +30,13 @@ namespace OnlineUpdater
         /// </summary>
         private static string DownloadURL;
 
-        internal static Version LatestVersion = new Version("1.0.2.0");
+        internal static string UpdateDialogTitle;
 
-        internal static Version InstalledVersion = new Version("1.0.0.0");
+        internal static string AppTitle;
 
-        private static CultureInfo CurrentCulture;
+        internal static Version LatestVersion;
+
+        internal static Version InstalledVersion;
 
         /// <summary>
         /// Проверка наличия новой версии, при инициализированном UpdateXmlURL
@@ -47,10 +45,6 @@ namespace OnlineUpdater
         {
             StartUpdate(UpdateXmlUrl);
         }
-
-        internal static string UpdateDialogTitle = "Обновление Start";
-
-        internal static string AppTitle = "Start";
 
         /// <summary>
         /// Проверка наличия новой версии
@@ -70,7 +64,6 @@ namespace OnlineUpdater
             if(CheckArgs())
             {
                 Thread thread = new Thread(ShowUI);
-                thread.CurrentCulture = thread.CurrentUICulture = CurrentCulture ?? Thread.CurrentThread.CurrentCulture;
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
             }
@@ -127,22 +120,18 @@ namespace OnlineUpdater
 
                     XmlNode appXmlUrl = item.SelectSingleNode("url");
                     DownloadURL = GetURL(webResponse.ResponseUri, appXmlUrl);
-
-                    if (IntPtr.Size.Equals(8))
-                    {
-                        XmlNode appXmlUrl64 = item.SelectSingleNode("url64");
-                        string downloadURL64 = GetURL(webResponse.ResponseUri, appXmlUrl64);
-                        if (!string.IsNullOrEmpty(downloadURL64))
-                        {
-                            DownloadURL = downloadURL64;
-                        }
-                    }
                 }
             }
         }
 
         private static bool CheckArgs()
         {
+            Assembly mainAssembly = Assembly.GetEntryAssembly();
+            var titleAttribute = (AssemblyTitleAttribute)GetAttribute(mainAssembly, typeof(AssemblyTitleAttribute));
+            AppTitle = titleAttribute != null ? titleAttribute.Title : mainAssembly.GetName().Name;
+
+            InstalledVersion = mainAssembly.GetName().Version;
+
             if (LatestVersion == null || DownloadURL == null || InstalledVersion == null)
                 return false;
 
@@ -176,7 +165,17 @@ namespace OnlineUpdater
         internal static void DownloadUpdate()
         {
             DownloadProgressWindow downloadWindow = new DownloadProgressWindow(DownloadURL);
-            downloadWindow.Show();
+            downloadWindow.ShowDialog();
+        }
+
+        private static Attribute GetAttribute(Assembly assembly, Type attributeType)
+        {
+            object[] attributes = assembly.GetCustomAttributes(attributeType, false);
+            if (attributes.Length == 0)
+            {
+                return null;
+            }
+            return (Attribute)attributes[0];
         }
     }
 }
