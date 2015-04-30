@@ -9,3 +9,5 @@ D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.csproj.GenerateRe
 D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.dll
 D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.pdb
 D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\OnlineUpdater.csprojResolveAssemblyReference.cache
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\DownloadProgressWindow.baml
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Debug\DownloadProgressWindow.g.cs
