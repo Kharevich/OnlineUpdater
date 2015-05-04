@@ -1,0 +1,12 @@
+D:\Windows\OnlineUpdater\OnlineUpdater\bin\Release\OnlineUpdater.dll
+D:\Windows\OnlineUpdater\OnlineUpdater\bin\Release\OnlineUpdater.pdb
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\DownloadProgressWindow.baml
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\UpdateWindow.baml
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\DownloadProgressWindow.g.cs
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\UpdateWindow.g.cs
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater_MarkupCompile.cache
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater.g.resources
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater.Properties.Resources.resources
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater.csproj.GenerateResource.Cache
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater.dll
+D:\Windows\OnlineUpdater\OnlineUpdater\obj\Release\OnlineUpdater.pdb
